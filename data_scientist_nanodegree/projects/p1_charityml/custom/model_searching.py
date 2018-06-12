@@ -162,6 +162,15 @@ searcher.results.plot_resampled_scores(metric=oo.Metric.FBETA_SCORE)
 searcher.results.plot_resampled_scores(metric=oo.Metric.AUC_ROC)
 
 
+ada_tuner = searcher.results.tuner_results[1]
+ada_tuner.plot_resampled_scores(metric=oo.Metric.FBETA_SCORE)
+ada_tuner.plot_resampled_scores(metric=oo.Metric.AUC_ROC)
+ada_tuner.plot_hyper_params_profile(metric=oo.Metric.AUC_ROC,
+                                    x_axis='max_depth',
+                                    line='n_estimators',
+                                    grid='learning_rate')
+
+
 xgb_tuner = searcher.results.tuner_results[2]
 xgb_tuner.plot_resampled_scores(metric=oo.Metric.FBETA_SCORE)
 xgb_tuner.plot_resampled_scores(metric=oo.Metric.AUC_ROC)
