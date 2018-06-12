@@ -106,4 +106,5 @@ venv.bak/
 # custom folders
 /data_scientist_nanodegree/lab_decision_trees_titanic/searcher_v1
 /data_scientist_nanodegree/projects/p1_charityml/searcher_fbeta_v1
+/data_scientist_nanodegree/projects/p1_charityml/searcher_fbeta_v1_cached
 /data_scientist_nanodegree/.idea
