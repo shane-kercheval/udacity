@@ -1,5 +1,10 @@
+from typing import Union
+
 import numpy as np
+import oolearning as oo
+import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.metrics import roc_auc_score
 
 
 def column_log(x):
@@ -88,3 +93,25 @@ class CombineAgeHoursTransform(BaseEstimator, TransformerMixin):
             hours_X = X[:, 2]
 
             return np.c_[age_X, education_X, hours_X, age_X * hours_X]
+
+
+class BinaryAucRocScore(oo.AucRocScore):
+    """
+    Calculates the AUC of the ROC curve as defined by sklearn's `roc_auc_score()`
+        http://scikit-learn.org/stable/modules/generated/sklearn.score_names.roc_auc_score.html
+    """
+    def __init__(self, positive_class, threshold: float=0.5):
+        super().__init__(positive_class=positive_class)
+        self._threshold = threshold
+
+    @property
+    def name(self) -> str:
+        return 'BINARY_AUC'
+
+    def _calculate(self,
+                   actual_values: np.ndarray,
+                   predicted_values: Union[np.ndarray, pd.DataFrame]) -> float:
+
+        return roc_auc_score(y_true=[1 if x == self._positive_class else 0 for x in actual_values],
+                             # binary makes it so it converts the "scores" to predictions
+                             y_score=[1 if x > self._threshold else 0 for x in predicted_values[self._positive_class].values])

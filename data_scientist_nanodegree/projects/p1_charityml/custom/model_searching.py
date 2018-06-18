@@ -1,39 +1,15 @@
 import copy
-from typing import Union
+import os
 
 import oolearning as oo
 import pandas as pd
-import numpy as np
-import os
 
-from sklearn.metrics import roc_auc_score
-
-from projects.p1_charityml.custom.helpers import column_log
+from projects.p1_charityml.custom.helpers import column_log, BinaryAucRocScore
 
 pd.set_option('display.width', 500)
 
 ##############################################################################################################
-class BinaryAucRocScore(oo.AucRocScore):
-    """
-    Calculates the AUC of the ROC curve as defined by sklearn's `roc_auc_score()`
-        http://scikit-learn.org/stable/modules/generated/sklearn.score_names.roc_auc_score.html
-    """
-    def __init__(self, positive_class, threshold: float=0.5):
-        super().__init__(positive_class=positive_class)
-        self._threshold = threshold
-
-    @property
-    def name(self) -> str:
-        return 'BINARY_AUC'
-
-    def _calculate(self,
-                   actual_values: np.ndarray,
-                   predicted_values: Union[np.ndarray, pd.DataFrame]) -> float:
-
-        return roc_auc_score(y_true=[1 if x == self._positive_class else 0 for x in actual_values],
-                             # binary makes it so it converts the "scores" to predictions
-                             y_score=[1 if x > self._threshold else 0 for x in predicted_values[self._positive_class].values])
-##############################################################################################################
+# ################################################################################
 print(os.getcwd())
 directory = 'projects/p1_charityml/'
 csv_file = os.path.join(directory, 'census.csv')
@@ -95,8 +71,22 @@ infos = [
                       hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
                           penalty=['l1', 'l2'],
                           regularization_inverse=[0.001, 0.01, 0.05, 0.1, 0.2, 0.5, 1, 100]))),
+         oo.ModelInfo(description='Logistic Regression with PCA',
+                      model=oo.LogisticClassifier(),
+                      transformations=[oo.PCATransformer(percent_variance_explained=0.97)],
+                      hyper_params=oo.LogisticClassifierHP(),
+                      hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
+                          penalty=['l1', 'l2'],
+                          regularization_inverse=[0.001, 0.01, 0.05, 0.1, 0.2, 0.5, 1, 100]))),
          oo.ModelInfo(description='SVM Linear',
                       model=oo.SvmLinearClassifier(), transformations=None,
+                      hyper_params=oo.SvmLinearClassifierHP(),
+                      hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
+                          penalty=['l2'],
+                          penalty_c=[0.001, 0.01, 0.05, 0.1, 0.2, 0.5, 1, 100, 1000]))),
+         oo.ModelInfo(description='SVM Linear with PCA',
+                      model=oo.SvmLinearClassifier(),
+                      transformations=[oo.PCATransformer(percent_variance_explained=0.97)],
                       hyper_params=oo.SvmLinearClassifierHP(),
                       hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
                           penalty=['l2'],
@@ -126,35 +116,44 @@ infos = [
          #                  degree=[2, 3],
          #                  coef0=[0, 1, 10],
          #                  penalty_c=[0.001, 0.1, 100, 1000]))),
-         oo.ModelInfo(description='Random Forest',
-                      model=oo.RandomForestClassifier(),
-                      transformations=None,
-                      hyper_params=oo.RandomForestHP(),
-                      hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
-                          criterion='gini',
-                          max_features=[int(round(len(columns) ** (1 / 2.0))),
-                                        25,
-                                        int(round(len(columns) / 2)),
-                                        75,
-                                        len(columns) - 1],
-                          n_estimators=[100, 250, 500, 1000],
-                          min_samples_leaf=[1, 25, 50, 75, 100]))),
-         oo.ModelInfo(description='Adaboost',
-                      model=oo.AdaBoostClassifier(),
-                      transformations=None,
-                      hyper_params=oo.AdaBoostClassifierHP(),
-                      hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
-                          max_depth=[2, 3, 5, 10, 30],
-                          n_estimators=[50, 100, 150, 500],
-                          learning_rate=[0.01, 0.05, 0.1, 0.5]))),
-         oo.ModelInfo(description='XGBoost',
-                      model=oo.XGBoostClassifier(),
-                      transformations=None,
-                      hyper_params=oo.XGBoostTreeHP(objective=oo.XGBObjective.BINARY_LOGISTIC),
-                      hyper_params_grid=oo.HyperParamsGrid(
-                          params_dict=dict(colsample_bytree=[0.1, 0.25, 0.4, 0.7],
-                                           subsample=[0.5, 0.75, 1.0],
-                                           max_depth=[6, 9, 15, 20])))]
+         # oo.ModelInfo(description='Random Forest',
+         #              model=oo.RandomForestClassifier(),
+         #              transformations=None,
+         #              hyper_params=oo.RandomForestHP(),
+         #              hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
+         #                  criterion='gini',
+         #                  max_features=[int(round(len(columns) ** (1 / 2.0))),
+         #                                25,
+         #                                int(round(len(columns) / 2)),
+         #                                75,
+         #                                len(columns) - 1],
+         #                  n_estimators=[100, 250, 500, 1000],
+         #                  min_samples_leaf=[1, 25, 50, 75, 100]))),
+         # oo.ModelInfo(description='Adaboost',
+         #              model=oo.AdaBoostClassifier(),
+         #              transformations=None,
+         #              hyper_params=oo.AdaBoostClassifierHP(),
+         #              hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
+         #                  max_depth=[2, 3, 5, 10, 30],
+         #                  n_estimators=[50, 100, 150, 500],
+         #                  learning_rate=[0.01, 0.05, 0.1, 0.5]))),
+         # oo.ModelInfo(description='XGBoost',
+         #              model=oo.XGBoostClassifier(),
+         #              transformations=None,
+         #              hyper_params=oo.XGBoostTreeHP(objective=oo.XGBObjective.BINARY_LOGISTIC),
+         #              hyper_params_grid=oo.HyperParamsGrid(
+         #                  params_dict=dict(colsample_bytree=[0.1, 0.25, 0.4, 0.7],
+         #                                   subsample=[0.5, 0.75, 1.0],
+         #                                   max_depth=[6, 9, 15, 20]))),
+         # oo.ModelInfo(description='XGBoost PCA',
+         #              model=oo.XGBoostClassifier(),
+         #              transformations=[oo.PCATransformer(percent_variance_explained=0.95)],
+         #              hyper_params=oo.XGBoostTreeHP(objective=oo.XGBObjective.BINARY_LOGISTIC),
+         #              hyper_params_grid=oo.HyperParamsGrid(
+         #                  params_dict=dict(colsample_bytree=[0.1, 0.25, 0.4, 0.7],
+         #                                   subsample=[0.5, 0.75, 1.0],
+         #                                   max_depth=[6, 9, 15, 20]))),
+        ]
 
 # infos[2].hyper_params_grid.params_grid
 # infos[3].hyper_params_grid.params_grid
@@ -192,8 +191,8 @@ searcher = oo.ModelSearcher(global_transformations=[t.clone() for t in global_tr
                                 repeats=5),
                             model_persistence_manager=oo.LocalCacheManager(cache_directory=model_cache_directory),
                             resampler_persistence_manager=oo.LocalCacheManager(cache_directory=resampler_cache_directory),
-                            #parallelization_cores=0)
-                            parallelization_cores=multiprocessing.cpu_count()-2)
+                            parallelization_cores=0)
+                            #parallelization_cores=multiprocessing.cpu_count()-2)
 searcher._parallelization_cores
 searcher.search(data=explore.dataset, target_variable='income')
 
