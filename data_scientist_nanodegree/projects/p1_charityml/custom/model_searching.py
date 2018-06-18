@@ -71,26 +71,26 @@ infos = [
                       hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
                           penalty=['l1', 'l2'],
                           regularization_inverse=[0.001, 0.01, 0.05, 0.1, 0.2, 0.5, 1, 100]))),
-         oo.ModelInfo(description='Logistic Regression with PCA',
-                      model=oo.LogisticClassifier(),
-                      transformations=[oo.PCATransformer(percent_variance_explained=0.97)],
-                      hyper_params=oo.LogisticClassifierHP(),
-                      hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
-                          penalty=['l1', 'l2'],
-                          regularization_inverse=[0.001, 0.01, 0.05, 0.1, 0.2, 0.5, 1, 100]))),
+         # oo.ModelInfo(description='Logistic Regression with PCA',
+         #              model=oo.LogisticClassifier(),
+         #              transformations=[oo.PCATransformer(percent_variance_explained=0.97)],
+         #              hyper_params=oo.LogisticClassifierHP(),
+         #              hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
+         #                  penalty=['l1', 'l2'],
+         #                  regularization_inverse=[0.001, 0.01, 0.05, 0.1, 0.2, 0.5, 1, 100]))),
          oo.ModelInfo(description='SVM Linear',
                       model=oo.SvmLinearClassifier(), transformations=None,
                       hyper_params=oo.SvmLinearClassifierHP(),
                       hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
                           penalty=['l2'],
                           penalty_c=[0.001, 0.01, 0.05, 0.1, 0.2, 0.5, 1, 100, 1000]))),
-         oo.ModelInfo(description='SVM Linear with PCA',
-                      model=oo.SvmLinearClassifier(),
-                      transformations=[oo.PCATransformer(percent_variance_explained=0.97)],
-                      hyper_params=oo.SvmLinearClassifierHP(),
-                      hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
-                          penalty=['l2'],
-                          penalty_c=[0.001, 0.01, 0.05, 0.1, 0.2, 0.5, 1, 100, 1000]))),
+         # oo.ModelInfo(description='SVM Linear with PCA',
+         #              model=oo.SvmLinearClassifier(),
+         #              transformations=[oo.PCATransformer(percent_variance_explained=0.97)],
+         #              hyper_params=oo.SvmLinearClassifierHP(),
+         #              hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
+         #                  penalty=['l2'],
+         #                  penalty_c=[0.001, 0.01, 0.05, 0.1, 0.2, 0.5, 1, 100, 1000]))),
          # oo.ModelInfo(description='SVM Poly',
          #              model=oo.SvmPolynomialClassifier(),
          #              transformations=None,
@@ -116,43 +116,35 @@ infos = [
          #                  degree=[2, 3],
          #                  coef0=[0, 1, 10],
          #                  penalty_c=[0.001, 0.1, 100, 1000]))),
-         # oo.ModelInfo(description='Random Forest',
-         #              model=oo.RandomForestClassifier(),
-         #              transformations=None,
-         #              hyper_params=oo.RandomForestHP(),
-         #              hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
-         #                  criterion='gini',
-         #                  max_features=[int(round(len(columns) ** (1 / 2.0))),
-         #                                25,
-         #                                int(round(len(columns) / 2)),
-         #                                75,
-         #                                len(columns) - 1],
-         #                  n_estimators=[100, 250, 500, 1000],
-         #                  min_samples_leaf=[1, 25, 50, 75, 100]))),
-         # oo.ModelInfo(description='Adaboost',
-         #              model=oo.AdaBoostClassifier(),
-         #              transformations=None,
-         #              hyper_params=oo.AdaBoostClassifierHP(),
-         #              hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
-         #                  max_depth=[2, 3, 5, 10, 30],
-         #                  n_estimators=[50, 100, 150, 500],
-         #                  learning_rate=[0.01, 0.05, 0.1, 0.5]))),
-         # oo.ModelInfo(description='XGBoost',
-         #              model=oo.XGBoostClassifier(),
-         #              transformations=None,
-         #              hyper_params=oo.XGBoostTreeHP(objective=oo.XGBObjective.BINARY_LOGISTIC),
-         #              hyper_params_grid=oo.HyperParamsGrid(
-         #                  params_dict=dict(colsample_bytree=[0.1, 0.25, 0.4, 0.7],
-         #                                   subsample=[0.5, 0.75, 1.0],
-         #                                   max_depth=[6, 9, 15, 20]))),
-         # oo.ModelInfo(description='XGBoost PCA',
-         #              model=oo.XGBoostClassifier(),
-         #              transformations=[oo.PCATransformer(percent_variance_explained=0.95)],
-         #              hyper_params=oo.XGBoostTreeHP(objective=oo.XGBObjective.BINARY_LOGISTIC),
-         #              hyper_params_grid=oo.HyperParamsGrid(
-         #                  params_dict=dict(colsample_bytree=[0.1, 0.25, 0.4, 0.7],
-         #                                   subsample=[0.5, 0.75, 1.0],
-         #                                   max_depth=[6, 9, 15, 20]))),
+         oo.ModelInfo(description='Random Forest',
+                      model=oo.RandomForestClassifier(),
+                      transformations=None,
+                      hyper_params=oo.RandomForestHP(),
+                      hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
+                          criterion='gini',
+                          max_features=[int(round(len(columns) ** (1 / 2.0))),
+                                        25,
+                                        int(round(len(columns) / 2)),
+                                        75,
+                                        len(columns) - 1],
+                          n_estimators=[100, 250, 500, 1000],
+                          min_samples_leaf=[1, 25, 50, 75, 100]))),
+         oo.ModelInfo(description='Adaboost',
+                      model=oo.AdaBoostClassifier(),
+                      transformations=None,
+                      hyper_params=oo.AdaBoostClassifierHP(),
+                      hyper_params_grid=oo.HyperParamsGrid(params_dict=dict(
+                          max_depth=[2, 3, 5, 10, 30],
+                          n_estimators=[50, 100, 150, 500],
+                          learning_rate=[0.01, 0.05, 0.1, 0.5]))),
+         oo.ModelInfo(description='XGBoost',
+                      model=oo.XGBoostClassifier(),
+                      transformations=None,
+                      hyper_params=oo.XGBoostTreeHP(objective=oo.XGBObjective.BINARY_LOGISTIC),
+                      hyper_params_grid=oo.HyperParamsGrid(
+                          params_dict=dict(colsample_bytree=[0.1, 0.25, 0.4, 0.7],
+                                           subsample=[0.5, 0.75, 1.0],
+                                           max_depth=[6, 9, 15, 20]))),
         ]
 
 # infos[2].hyper_params_grid.params_grid
@@ -200,6 +192,7 @@ searcher.results.model_descriptions
 
 # searcher.results.model_names
 
+searcher.results.plot_resampled_scores(score_name='BINARY_AUC')
 searcher.results.plot_resampled_scores(metric=oo.Metric.AUC_ROC)
 searcher.results.plot_resampled_scores(metric=oo.Metric.FBETA_SCORE)
 searcher.results.plot_holdout_scores()
@@ -207,19 +200,28 @@ searcher.results.plot_holdout_scores()
 temp = searcher.results.best_tuned_results
 
 log_tuner = searcher.results.tuner_results[2]
+log_tuner.plot_resampled_scores(score_name='BINARY_AUC')
+log_tuner.plot_hyper_params_profile(score_name='BINARY_AUC',
+                                    x_axis='regularization_inverse',
+                                    line='penalty')
+
 log_tuner.plot_resampled_scores(metric=oo.Metric.AUC_ROC)
 log_tuner.plot_resampled_scores(metric=oo.Metric.FBETA_SCORE)
+
 log_tuner.plot_hyper_params_profile(metric=oo.Metric.AUC_ROC,
                                     x_axis='regularization_inverse',
                                     line='penalty')
 
 svm_tuner = searcher.results.tuner_results[3]
-svm_tuner.plot_resampled_scores(metric=oo.Metric.AUC_ROC)
-svm_tuner.plot_resampled_scores(metric=oo.Metric.FBETA_SCORE)
-svm_tuner.plot_hyper_params_profile(metric=oo.Metric.AUC_ROC,
+svm_tuner.plot_resampled_scores(score_name='BINARY_AUC')
+svm_tuner.plot_hyper_params_profile(score_name='BINARY_AUC',
                                     x_axis='max_depth',
                                     line='n_estimators',
                                     grid='learning_rate')
+
+
+svm_tuner.plot_resampled_scores(metric=oo.Metric.AUC_ROC)
+svm_tuner.plot_resampled_scores(metric=oo.Metric.FBETA_SCORE)
 
 rf_tuner = searcher.results.tuner_results[4]
 rf_tuner.plot_resampled_scores(metric=oo.Metric.AUC_ROC)
