@@ -95,6 +95,27 @@ class CombineAgeHoursTransform(BaseEstimator, TransformerMixin):
             return np.c_[age_X, education_X, hours_X, age_X * hours_X]
 
 
+class CombineCapitalGainLossTransform(BaseEstimator, TransformerMixin):
+    def __init__(self, combine=True):
+        """
+        :param combine: used to hyper-tune
+        """
+        self.combine = combine
+
+    def fit(self, X, y=None):
+        return self
+
+    def transform(self, X):
+        if self.combine is False:
+            return X
+
+        else:
+            capital_gain = X[:, 0]
+            capital_loss = X[:, 1]
+
+            return np.c_[capital_gain, capital_loss, capital_gain - capital_loss]
+
+
 class BinaryAucRocScore(oo.AucRocScore):
     """
     Calculates the AUC of the ROC curve as defined by sklearn's `roc_auc_score()`
