@@ -1,0 +1,108 @@
+-------------------------------
+Model: XGBClassifier
+Best Score (make_scorer(roc_auc_score)): 0.8363485046347008
+Best Params: {'model__max_depth': 3, 'model__min_child_weight': 5, 'preparation__cap_gain_loss_pipeline__custom_transform__base': 2.718281828459045, 'preparation__num_pipeline__combine_agehours__combine': False}
+Time: -12768.1s
+
+
+NOTE BUT THIS IS A LOWER SCORE
+-------------------------------
+Model: XGBClassifier
+Best Score (make_scorer(roc_auc_score)): 0.8282759562404396
+Best Params: {'model__max_depth': 4, 'model__min_child_weight': 3}
+Time: -1529.9s
+
+
+
+
+(0.8342108218915141, {'model__colsample_bytree': 0.6, 'model__subsample': 0.9})
+
+============================================================================================================
+         'model__subsample':[0.8, 0.85, 0.9, 0.95, 1],
+         'model__colsample_bytree': [0.4, 0.5, 0.6, 0.65, 0.7],
+(0.8387775058479304, {'model__colsample_bytree': 0.4, 'model__subsample': 1})
+
+============================================================================================================
+         'model__subsample':[0.9, 1],
+         'model__colsample_bytree': [0.3, 0.4, 0.5],
+         'model__n_estimators': [500, 1000, 1500],
+
+
+0.8432343905769959,
+ {'model__colsample_bytree': 0.4,
+  'model__n_estimators': 500,
+  'model__subsample': 1})
+
+============================================================================================================
+[{'model__subsample': [0.9, 1],
+  'model__colsample_bytree': [0.3, 0.4, 0.5],
+  'model__n_estimators': [50, 100, 250, 500]}]
+
+(0.8446717073631916,
+ {'model__colsample_bytree': 0.3,
+  'model__n_estimators': 250,
+  'model__subsample': 0.9})
+  ============================================================================================================
+  [{'model__subsample': [0.85, 0.9, 0.95],
+  'model__colsample_bytree': [0.25, 0.3, 0.35],
+  'model__n_estimators': [150, 250, 350]}]
+
+  (0.8442568879097755,
+ {'model__colsample_bytree': 0.25,
+  'model__n_estimators': 150,
+  'model__subsample': 0.95})
+  ============================================================================================================
+  [{'model__subsample': [0.9, 0.95, 1],
+  'model__colsample_bytree': [0.15, 0.2, 0.25, 0.3],
+  'model__n_estimators': [50, 100, 150, 200]}]
+
+  (0.8449367698265818,
+ {'model__colsample_bytree': 0.15,
+  'model__n_estimators': 200,
+  'model__subsample': 0.95})
+
+
+  ============================
+[{'model__subsample': [0.9, 0.95, 1],
+  'model__colsample_bytree': [0.1, 0.15, 0.2],
+  'model__n_estimators': [150, 200, 250]}]
+
+  (0.8448732897856133,
+ {'model__colsample_bytree': 0.15,
+  'model__n_estimators': 250,
+  'model__subsample': 0.9})
+
+  =============================
+  [{'model__subsample': [0.85, 0.9, 0.95],
+  'model__colsample_bytree': [0.1, 0.15, 0.2],
+  'model__n_estimators': [200, 250, 300]}]
+
+  (0.8454695731763837,
+ {'model__colsample_bytree': 0.15,
+  'model__n_estimators': 300,
+  'model__subsample': 0.95})
+
+
+  ============================
+[{'model__subsample': [0.9, 0.95, 1.0],
+  'model__colsample_bytree': [0.1, 0.15, 0.2],
+  'model__n_estimators': [250, 300, 350]}]
+
+  (0.8448745317338672,
+ {'model__colsample_bytree': 0.1,
+  'model__n_estimators': 250,
+  'model__subsample': 0.95})
+
+  =============================
+[{'model__reg_alpha': [0, 0.001, 0.005, 0.01, 0.05]}]
+
+(0.8446869378232749, {'model__reg_alpha': 0.005}), 
+
+NOTE: worse, than previous , consider tuning [0, 0.001, 0.005, 0.01 in final tune
+
+============================
+
+[{'model__learning_rate': [0.005, 0.01, 0.05, 0.1, 0.3],
+  'model__n_estimators': [300, 500, 1000, 2000]}]
+
+
