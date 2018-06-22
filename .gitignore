@@ -110,6 +110,10 @@ venv.bak/
 /data_scientist_nanodegree/projects/p1_charityml/custom/searcher_fbeta_v1_resample_cache/
 /data_scientist_nanodegree/projects/p1_charityml/searcher_fbeta_v1
 /data_scientist_nanodegree/projects/p1_charityml/searcher_fbeta_v1_cached
+/data_scientist_nanodegree/projects/p1_charityml/custom/tuner_Adaboost
+/data_scientist_nanodegree/projects/p1_charityml/custom/tuner_Adaboost_resample_cache
+/data_scientist_nanodegree/projects/p1_charityml/custom/tuner_RandomForest
+/data_scientist_nanodegree/projects/p1_charityml/custom/tuner_RandomForest_resample_cache
 /data_scientist_nanodegree/projects/p1_charityml/custom/tuner_XGB
 /data_scientist_nanodegree/projects/p1_charityml/custom/tuner_XGB_resample_cache
 /data_scientist_nanodegree/projects/p1_charityml/searcher_fbeta_v1_resample_cache
