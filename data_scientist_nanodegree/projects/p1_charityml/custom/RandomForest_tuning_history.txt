@@ -1,0 +1,20 @@
+params_dict = dict(
+    max_depth=[30, 60, 90],
+    max_features=[0.4, 0.65, 0.9],
+    min_samples_leaf=[2],
+    min_samples_split=[2, 9, 16],
+)
+
+tuner.results.best_hyper_params
+tuner.results.best_hyper_params
+{'max_depth': 30,
+ 'max_features': 0.4,
+ 'min_samples_leaf': 2,
+ 'min_samples_split': 16}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9157376607018856,
+ 'F_BETA': 0.737715410291029,
+ 'sensitivity': 0.6300003425131095,
+ 'positive_predictive_value': 0.7707185621196669}
+ =================================================

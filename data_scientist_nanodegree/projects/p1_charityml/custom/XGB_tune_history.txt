@@ -150,3 +150,20 @@ NOTE: worse, than previous , consider tuning [0, 0.001, 0.005, 0.01 in final tun
  'positive_predictive_value': 0.6189823694407532}
 
 - Try > 1750 for n_estimators, <2 for min_child_weight
+
+
+==========================================================
+
+tuner.results.best_hyper_params
+tuner.results.best_hyper_params
+{'subsample': 1.0, 'colsample_bytree': 0.5}
+
+params_dict
+params_dict
+{'subsample': [0.97, 0.98, 0.99, 1.0], 'colsample_bytree': [0.5, 0.6, 0.7]}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9289872405473832,
+ 'F_BETA': 0.6532018384754944,
+ 'sensitivity': 0.8671098479100782,
+ 'positive_predictive_value': 0.6152707986944443}
