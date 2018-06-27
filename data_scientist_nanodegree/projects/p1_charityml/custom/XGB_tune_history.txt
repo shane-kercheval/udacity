@@ -167,3 +167,57 @@ tuner.results.best_model_resampler_object.score_means
  'F_BETA': 0.6532018384754944,
  'sensitivity': 0.8671098479100782,
  'positive_predictive_value': 0.6152707986944443}
+
+ ============================================================
+ {'subsample': 1.0, 'colsample_bytree': 0.45}
+
+params_dict
+params_dict
+{'subsample': [0.98, 0.99, 1.0], 'colsample_bytree': [0.45, 0.5, 0.55]}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9290879233436532,
+ 'F_BETA': 0.653613097161746,
+ 'sensitivity': 0.8672407963834001,
+ 'positive_predictive_value': 0.6157108246093156}
+==============================================================================
+ {'AUC_ROC': 0.9291771411334655,
+ 'F_BETA': 0.653979168985783,
+ 'sensitivity': 0.8675399345384709,
+ 'positive_predictive_value': 0.6160802222273272}
+==============================================================================
+ {'reg_alpha': 0, 'reg_lambda': 2}
+
+params_dict
+{'reg_alpha': [0, 1, 2], 'reg_lambda': [1, 2, 3]}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9294366782004522,
+ 'F_BETA': 0.654825151646448,
+ 'sensitivity': 0.8676391180353942,
+ 'positive_predictive_value': 0.6170042974065827}
+==============================================================================
+ {'reg_alpha': 0.0, 'reg_lambda': 2.0}
+
+params_dict
+{'reg_alpha': [0, 0.01, 0.25, 0.05], 'reg_lambda': [1.5, 2, 2.5]}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9294366782004522,
+ 'F_BETA': 0.654825151646448,
+ 'sensitivity': 0.8676391180353942,
+ 'positive_predictive_value': 0.6170042974065827}
+==============================================================================
+ {'learning_rate': 0.05, 'n_estimators': 3000}
+
+params_dict
+{'learning_rate': [0.01, 0.05, 0.1, 0.15, 0.2],
+ 'n_estimators': [1000, 2000, 3000, 4000]}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9295263076658143,
+ 'F_BETA': 0.6558908677615406,
+ 'sensitivity': 0.8667017272928185,
+ 'positive_predictive_value': 0.6183076557668854}
+
+==============================================================================
