@@ -50,3 +50,54 @@ Randomized Search
   'model__min_child_weight': 3,
   'model__n_estimators': 491})
 
+==============================================================================================================
+params_dict
+{'max_features': [0.4, 0.5, 0.6, 0.7, 0.8], 'max_depth': [10, 25, 50, 75, 100]}
+
+tuner.results.best_hyper_params
+{'max_features': 0.4, 'max_depth': 10}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9174845732651005,
+ 'F_BETA': 0.7283406320335294,
+ 'sensitivity': 0.6573921476641793,
+ 'positive_predictive_value': 0.7485876959122099}
+==============================================================================================================
+params_dict
+{'max_features': [0.1, 0.2, 0.3, 0.4], 'max_depth': [2, 4, 6, 8, 10]}
+
+tuner.results.best_hyper_params
+{'max_features': 0.3, 'max_depth': 2}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9262236088439127,
+ 'F_BETA': 0.7482161312880271,
+ 'sensitivity': 0.6628228612633548,
+ 'positive_predictive_value': 0.7731856188642356}
+ =============================================================================================================
+ params_dict
+{'min_samples_split': [0.3, 0.4, 0.5], 'min_samples_leaf': [0.005, 0.01, 0.02]}
+
+tuner.results.best_hyper_params
+{'min_samples_split': 0.5, 'min_samples_leaf': 0.005}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9282222726807866,
+ 'F_BETA': 0.7515396455426956,
+ 'sensitivity': 0.6657898952876353,
+ 'positive_predictive_value': 0.7766016646789474}
+==============================================================================================================
+{'min_samples_split': [0.5, 0.6, 0.7],
+ 'min_samples_leaf': [0.001, 0.0025, 0.005]}
+
+tuner.results.best_hyper_params
+{'min_samples_split': 0.7, 'min_samples_leaf': 0.0025}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9285750042193898,
+ 'F_BETA': 0.7533736266973513,
+ 'sensitivity': 0.6658843952699326,
+ 'positive_predictive_value': 0.7790090938285821}
+==============================================================================================================
+
+
