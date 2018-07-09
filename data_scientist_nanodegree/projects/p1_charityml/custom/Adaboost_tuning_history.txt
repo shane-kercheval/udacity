@@ -111,4 +111,66 @@ tuner.results.best_model_resampler_object.score_means
  'F_BETA': 0.7530521094110074,
  'sensitivity': 0.6666251263631361,
  'positive_predictive_value': 0.7783317184267398}
+==============================================================================================================
+{'n_estimators': [1750, 1869, 2000, 2250],
+ 'learning_rate': [0.0001, 0.001, 0.01, 0.1]}
+
+tuner.results.best_hyper_params
+{'n_estimators': 2250, 'learning_rate': 0.1}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9270757919114394,
+ 'F_BETA': 0.7519510326394468,
+ 'sensitivity': 0.6523090188452884,
+ 'positive_predictive_value': 0.7818591539132825}
+==============================================================================================================
+params_dict
+{'n_estimators': [2250, 2500, 2750, 3000],
+ 'learning_rate': [0.1, 0.2, 0.5, 0.75]}
+
+tuner.results.best_hyper_params
+{'n_estimators': 3000, 'learning_rate': 0.5}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9289200378354137,
+ 'F_BETA': 0.7542360652373625,
+ 'sensitivity': 0.6644782893701335,
+ 'positive_predictive_value': 0.7806483243627954}
+==============================================================================================================
+ {'n_estimators': [3000, 3250, 3500], 'learning_rate': [0.4, 0.5, 0.6]}
+
+tuner.results.best_hyper_params
+{'n_estimators': 3500, 'learning_rate': 0.5}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9289232248297317,
+ 'F_BETA': 0.7542473438588074,
+ 'sensitivity': 0.6651276598789002,
+ 'positive_predictive_value': 0.7804415919712071}
+==============================================================================================================
+{'n_estimators': [3500, 3750, 4000], 'learning_rate': [0.45, 0.5, 0.55]}
+
+tuner.results.best_hyper_params
+{'n_estimators': 4000, 'learning_rate': 0.45}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9289625533210177,
+ 'F_BETA': 0.7539567255244795,
+ 'sensitivity': 0.6645908220577649,
+ 'positive_predictive_value': 0.7802485047182024}
+==============================================================================================================
+params_dict
+{'n_estimators': [4000, 4250, 4500],
+ 'learning_rate': [0.425, 0.45, 0.475, 0.5]}
+
+tuner.results.best_hyper_params
+{'n_estimators': 4250, 'learning_rate': 0.45}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9289658151291172,
+ 'F_BETA': 0.7537722241036691,
+ 'sensitivity': 0.6650168895774823,
+ 'positive_predictive_value': 0.779848500163165}
+
+
 

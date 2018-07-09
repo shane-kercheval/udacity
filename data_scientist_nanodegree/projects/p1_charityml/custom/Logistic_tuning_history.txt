@@ -1,0 +1,11 @@
+{'penalty': ['l1', 'l2'],
+ 'regularization_inverse': [0.1, 1, 5, 10, 25, 50, 75]}
+
+tuner.results.best_hyper_params
+{'penalty': 'l2', 'regularization_inverse': 0.1}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.8979265096419631,
+ 'F_BETA': 0.689468172786823,
+ 'sensitivity': 0.59063700373103,
+ 'positive_predictive_value': 0.7196215974026162}
