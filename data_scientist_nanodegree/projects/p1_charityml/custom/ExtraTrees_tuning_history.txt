@@ -16,5 +16,40 @@ tuner.results.best_model_resampler_object.score_means
     min_samples_split=16,
     min_samples_leaf=2,
 
- =================
+==============================================================================================================
  -- commented tou min_samples_split, min_samples_leaf
+ 
+ params_dict
+{'n_estimators': [3750],
+ 'max_features': [0.3, 0.35, 0.4],
+ 'max_depth': [19, 25, 30]}
+
+tuner.results.best_hyper_params
+{'n_estimators': 3750, 'max_features': 0.4, 'max_depth': 19}
+==============================================================================================================
+params_dict
+{'n_estimators': [3750],
+ 'max_features': [0.4, 0.5, 0.6],
+ 'max_depth': [3, 7, 15, 19]}
+
+tuner.results.best_hyper_params
+{'n_estimators': 3750, 'max_features': 0.6, 'max_depth': 15}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9176998762567108,
+ 'F_BETA': 0.7449537778485609,
+ 'sensitivity': 0.6177385812878186,
+ 'positive_predictive_value': 0.785451491974659}
+==============================================================================================================
+ {'n_estimators': [3750],
+ 'max_features': [0.6, 0.7, 0.8],
+ 'max_depth': [15, 17, 19, 21]}
+
+tuner.results.best_hyper_params
+{'n_estimators': 3750, 'max_features': 0.8, 'max_depth': 15}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9192304156671431,
+ 'F_BETA': 0.7459120977566124,
+ 'sensitivity': 0.6218349616538468,
+ 'positive_predictive_value': 0.7851400035236381}
