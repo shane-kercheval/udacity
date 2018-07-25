@@ -66,3 +66,43 @@ tuner.results.best_model_resampler_object.score_means
  'F_BETA': 0.7460516224793633,
  'sensitivity': 0.6237345631004353,
  'positive_predictive_value': 0.7845729011251507}
+==============================================================================================================
+params_dict
+{'n_estimators': [3750],
+ 'max_features': [0.925, 0.95, 0.975],
+ 'max_depth': [14, 15, 16]}
+
+tuner.results.best_hyper_params
+{'n_estimators': 3750, 'max_features': 0.975, 'max_depth': 14}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9197921533974868,
+ 'F_BETA': 0.7470170894530099,
+ 'sensitivity': 0.6216329715956245,
+ 'positive_predictive_value': 0.78674526349603}
+==============================================================================================================
+{'n_estimators': [3750],
+ 'max_features': [0.97, 0.98, 0.99],
+ 'max_depth': [12, 13, 14]}
+
+tuner.results.best_hyper_params
+{'n_estimators': 3750, 'max_features': 0.99, 'max_depth': 14}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9198013935406608,
+ 'F_BETA': 0.7467658190572237,
+ 'sensitivity': 0.6216182883035996,
+ 'positive_predictive_value': 0.7864063374384781}
+==============================================================================================================
+{'n_estimators': [3750],
+ 'max_features': [0.985, 0.99, 0.995, 1.0],
+ 'max_depth': [13, 14, 15]}
+
+tuner.results.best_hyper_params
+{'n_estimators': 3750, 'max_features': 1.0, 'max_depth': 14}
+
+tuner.results.best_model_resampler_object.score_means
+{'AUC_ROC': 0.9198502402275289,
+ 'F_BETA': 0.7467074708291433,
+ 'sensitivity': 0.6219201808832833,
+ 'positive_predictive_value': 0.7861999237230423}
