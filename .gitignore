@@ -124,3 +124,9 @@ venv.bak/
 /data_scientist_nanodegree/projects/p1_charityml/custom/tuner_XGB_resample_cache
 /data_scientist_nanodegree/projects/p1_charityml/searcher_fbeta_v1_resample_cache
 /data_scientist_nanodegree/.idea
+
+data_scientist_nanodegree/projects/p1_charityml/custom/stacker_tune_logistic/
+
+\.idea/
+
+data_scientist_nanodegree/projects/p1_charityml/custom/stacker_tune_exclude_dataset/

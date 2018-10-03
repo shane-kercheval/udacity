@@ -11,6 +11,16 @@ def column_log(x):
     return np.log(x + 1)
 
 
+def create_net_capital(x):
+    temp = x.copy()
+    temp['net capital'] = temp['capital-gain'] - temp['capital-loss']
+    return temp
+
+
+def strip_strings(x):
+    return x.str.strip()
+
+
 # since Scikit-Learn doesn't handle DataFrames yet
 class DataFrameSelector(BaseEstimator, TransformerMixin):
     def __init__(self, attribute_names):
